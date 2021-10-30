@@ -38,6 +38,11 @@ Route::get('/summary', function () {
         'title' => 'Summary'
     ]);
 });
+Route::get('/login', function () {
+    return view('login.login', [
+        'title' => 'Login'
+    ]);
+});
 
 // Route::get('/', 'UserController@index')->name('home');
 // Route::get('/produk', 'UserController@index')->name('produk');
