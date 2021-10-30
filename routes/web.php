@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,12 +28,8 @@ Route::get('/', function () {
 
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/product/{product:slug}', [ProductController::class, 'show']);
+Route::get('/cart', [CartController::class, 'index']);
 
-Route::get('/cart', function () {
-    return view('cart' , [
-        'title' => 'Cart'
-    ]); 
-});
 
 Route::get('/checkout', function () {
     return view('checkout', [
