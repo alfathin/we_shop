@@ -13,3 +13,10 @@ p {
 .summary {
     width: 320px;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login {
+        width: 100%;
+    }
+}
