@@ -12,13 +12,13 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">We Shop</a>
+        <div class="container">
+          <a class="navbar-brand" style="font-size: 25px" href="/">We Shop</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+          <div class="collapse navbar-collapse d-flex" id="navbarNav">
+            <ul class="navbar-nav ">
               <li class="nav-item">
                 <a class="nav-link {{ Request::is('products') ? 'active' : ''  }}" href="/products">Product</a>
               </li>
@@ -26,7 +26,7 @@
                 <a class="nav-link {{ Request::is('cart') ? 'active' : ''  }}" href="/cart">Cart</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ Request::is('checkout') ? 'active' : ''  }}" href="/checkout">CheckOut</a>
+                <a class="nav-link {{ Request::is('categories') ? 'active' : ''  }}" href="/categories">Categories</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link {{ Request::is('summary') ? 'active' : ''  }}" href="/summary">Sumary</a>

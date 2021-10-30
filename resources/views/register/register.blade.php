@@ -4,7 +4,7 @@
 
     <div class="row justify-content-center">
         <div class="col-6">
-            <div class="card mt-5" style="width: 30rem;">
+            <div class="card mt-4" style="width: 30rem;">
                 <div class="card-header">
                     <h2> We Shop Register</h2>
                 </div>
