@@ -13,6 +13,7 @@ p {
 .summary {
     width: 320px;
 }
+<<<<<<< HEAD
 @media (max-width: 768px) {
     .summary {
         position: fixed;
@@ -38,5 +39,12 @@ p {
     }
     .resa {
         flex-direction: column;
+=======
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login {
+        width: 100%;
+>>>>>>> 7f6970673da8bb015fb1394308cb532be37f2f74
     }
 }
