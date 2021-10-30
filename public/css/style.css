@@ -1,0 +1,15 @@
+*,
+p {
+    padding: 0;
+    margin: 0;
+}
+.item {
+    color: #979595;
+    font-size: 0.9rem;
+}
+.item-cart {
+    flex: 1;
+}
+.summary {
+    width: 320px;
+}
