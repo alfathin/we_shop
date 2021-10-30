@@ -6,10 +6,18 @@
         <div class="col-6">
             <div class="card mt-5" style="width: 30rem;">
                 <div class="card-header">
-                    <h2> We Shop Login</h2>
+                    <h2> We Shop Register</h2>
                 </div>
                 <div class="card-body">
                     <form>
+                        <div class="mb-3">
+                            <label for="Name" class="form-label">Name</label>
+                            <input type="text" class="form-control" placeholder="Insert Your Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Name" class="form-label">Username</label>
+                            <input type="text" class="form-control" placeholder="Insert Your Username Account">
+                        </div>
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Email address</label>
                           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="We'll never share your email with anyone else.">
@@ -22,7 +30,7 @@
                       </form>
                 </div>
                 <div class="card-title ms-3">
-                    <small>Dont have any Account ? <a class="text-decoration-none" href="/register">Register</a></small>
+                    <small>Already Have Account ? <a class="text-decoration-none" href="/login">Login</a></small>
                 </div>
             </div>
         </div>

@@ -43,6 +43,11 @@ Route::get('/login', function () {
         'title' => 'Login'
     ]);
 });
+Route::get('/register', function () {
+    return view('register.register', [
+        'title' => 'register'
+    ]);
+});
 
 // Route::get('/', 'UserController@index')->name('home');
 // Route::get('/produk', 'UserController@index')->name('produk');
