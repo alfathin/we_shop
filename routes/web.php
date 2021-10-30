@@ -19,7 +19,6 @@ Route::get('/', function () {
         'title' => 'Home'
     ]);
 });
-<<<<<<< HEAD
 // Route::get('/products', function () {
 //     return view('products', [
 //         'title' => 'Products'
@@ -28,14 +27,6 @@ Route::get('/', function () {
 
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/product/{product:slug}', [ProductController::class, 'show']);
-=======
-
-Route::get('/products', function () {
-    return view('products', [
-        'title' => 'Products'
-    ]);
-});
->>>>>>> 154f33755149455df053ca3383145c93efc3af57
 
 Route::get('/cart', function () {
     return view('cart' , [
