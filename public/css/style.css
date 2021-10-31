@@ -13,3 +13,38 @@ p {
 .summary {
     width: 320px;
 }
+<<<<<<< HEAD
+@media (max-width: 768px) {
+    .summary {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        box-shadow: 0 -5px 5px -5px rgb(172, 172, 172) !important;
+    }
+    .detail-summary {
+        display: none;
+    }
+    .res {
+        background-color: white;
+        max-height: 50px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+    .res button {
+        max-width: 40%;
+        max-height: 40px;
+    }
+    .resa {
+        flex-direction: column;
+=======
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login {
+        width: 100%;
+>>>>>>> 7f6970673da8bb015fb1394308cb532be37f2f74
+    }
+}
