@@ -1,8 +1,8 @@
 @extends('layout.main')
 
 @section('container')
-<section class="cart d-flex mt-5">
-    <div class="item-cart me-5">
+<section class="d-flex mt-5 mb-5">
+    <div class="item-cart">
         <div class="shadow p-3 bg-body rounded ">
             <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
@@ -11,15 +11,18 @@
         </div>
         <div class="mt-3 shadow p-3 bg-body rounded d-flex align-items-center justify-content-between">
             <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
-            <img src="/download.jfif" style="width:100px;height:100px" alt="product">
+            <div class="img img-thumbnail mx-2">
+                <img src="/download.jfif" style="width: 100%; height:auto" alt="product">
+            </div>
             <div style="flex: 1;">
                 <p>sapatu bagsu langsung beli lah</p>
-                <p>Rp900.000</p>
+                <p class="fw-bolder">Rp900.000</p>
             </div>
             <div>
                 <i data-feather="trash-2"></i>
                 <i data-feather="heart"></i>
             </div>
+
         </div>
     </div>
     <div class="summary shadow p-3 bg-body rounded">
@@ -41,7 +44,7 @@
         </div>
         <div class="res">
             <div class="resa mb-3  d-flex justify-content-between">
-                <b>Total Harga</b>
+                <b class="fw-normal">Total Harga</b>
                 <b>Rp200.000</b>
             </div>
             <button class="check btn btn-primary" style="width:100%">Checkout</button>
