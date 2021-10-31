@@ -14,9 +14,6 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" style="font-size: 25px;" href="/">We Shop</a>
   <nav class="navbar navbar-expand-lg navbar-light" style="background: #00ff00;">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">We Shop</a>
