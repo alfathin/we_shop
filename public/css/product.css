@@ -2,6 +2,11 @@
     width: 100%;
 }
 
+.pin {
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 10px;
+}
+
 .card-title {
     font-weight: normal;
     font-size: 15px;
@@ -17,4 +22,10 @@
 
 .tinggi {
     box-shadow: 5px 5px 5px rgb(172, 172, 172) !important;
+}
+
+@media (min-width: 768px) {
+    .pin {
+        font-size: 20px;
+    }
 }

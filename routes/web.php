@@ -29,8 +29,11 @@ Route::get('/', function () {
 
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/product/{product:slug}', [ProductController::class, 'show']);
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
+
+
 Route::get('/cart', [CartController::class, 'index']);
-Route::get('/category', [CategoryController::class, 'index']);
 
 
 Route::get('/checkout', function () {
@@ -39,11 +42,7 @@ Route::get('/checkout', function () {
     ]);
 });
 
-Route::get('/categories', function () {
-    return view('categories', [
-        'title' => 'Categories'
-    ]);
-});
+
 
 Route::get('/summary', function () {
     return view('summary', [

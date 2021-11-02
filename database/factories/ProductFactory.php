@@ -17,7 +17,9 @@ class ProductFactory extends Factory
             'title' => $this->faker->words(3, true),
             'slug' => $this->faker->slug(),
             'excerpt' => $this->faker->randomNumber(5, true),
-            'body' => $this->faker->paragraph(mt_rand(50, 100))
+            'body' => $this->faker->paragraph(mt_rand(50, 100)),
+            'category_id' => mt_rand(1, 3),
+            'user_id' => mt_rand(1, 5)
         ];
     }
 }
