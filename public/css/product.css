@@ -1,0 +1,20 @@
+.login {
+    width: 100%;
+}
+
+.card-title {
+    font-weight: normal;
+    font-size: 15px;
+}
+
+.harga {
+    font-weight: 600;
+}
+
+.boday {
+    height: 115px;
+}
+
+.tinggi {
+    box-shadow: 5px 5px 5px rgb(172, 172, 172) !important;
+}

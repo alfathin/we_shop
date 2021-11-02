@@ -14,7 +14,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(mt_rand(3, 5)),
+            'title' => $this->faker->words(3, true),
             'slug' => $this->faker->slug(),
             'excerpt' => $this->faker->randomNumber(5, true),
             'body' => $this->faker->paragraph(mt_rand(50, 100))
