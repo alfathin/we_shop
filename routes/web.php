@@ -3,17 +3,20 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// |--------------------------------------------------------------------------
+// | Web Routes
+// |--------------------------------------------------------------------------
+// |
+// | Here is where you can register web routes for your application. These
+// | routes are loaded by the RouteServiceProvider within a group which
+// | contains the "web" middleware group. Now create something great!
+// |
+// */
 
 // Route::get('/', function () {
 //     return view('home', [
@@ -55,11 +58,11 @@ Route::get('/summary', function () {
 });
 
 // Route Fathtin
-Route::get('/register', function () {
-    return view('register.register', [
-        'title' => 'register'
-    ]);
-});
+// Route::get('/register', function () {
+//     return view('register.register', [
+//         'title' => 'register'
+//     ]);
+// });
 
 // Route::get('/login', function () {
 //     return view('login.login', [
@@ -67,10 +70,14 @@ Route::get('/register', function () {
 //     ]);
 // });
 
+Route::get('/register', [RegisterController::class, 'register'])->name('register');
+Route::put('/actionregister', [RegisterController::class, 'actionregister'])->name('actionregister');
+
 Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
-Route::get('/', [LoginController::class, 'home'])->name('home')->middleware('auth');
-Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
+Route::post('/actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
+Route::get('/actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
+
+Route::get('/', [HomeController::class, 'home'])->name('home')->middleware('auth');
 // Route::get('/', 'UserController@index')->name('home');
 // Route::get('/produk', 'UserController@index')->name('produk');
 // Route::get('/cart', 'UserController@index')->name('cart');
