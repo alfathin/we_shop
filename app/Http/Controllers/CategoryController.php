@@ -19,7 +19,7 @@ class CategoryController extends Controller
     {
         return view('products', [
             'title' => "Product By Category : $category->name",
-            'products' => $category->product,
+            'products' => $category->product->load('category', 'user'),
             'categories' => $category->name
         ]);
     }

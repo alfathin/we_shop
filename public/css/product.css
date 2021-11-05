@@ -1,3 +1,7 @@
+a {
+    text-decoration: none;
+}
+
 .login {
     width: 100%;
 }
@@ -24,8 +28,16 @@
     box-shadow: 5px 5px 5px rgb(172, 172, 172) !important;
 }
 
+h1 {
+    font-size: 30px;
+}
+
 @media (min-width: 768px) {
     .pin {
         font-size: 20px;
+    }
+
+    h1 {
+        font-size: 50px;
     }
 }

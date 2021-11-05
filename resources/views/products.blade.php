@@ -5,7 +5,7 @@
 
 @section('container')
 
-    <h1 class="my-5">{{ $title }}</h1>
+    <h1 class="my-4 text-center">{{ $title }}</h1>
     <div class="row">
         @foreach ( $products as $product )
         <div class="col col-md-4">
