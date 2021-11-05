@@ -2,10 +2,9 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
-/*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -27,20 +26,25 @@ use Illuminate\Support\Facades\Route;
 //     ]);
 // });
 
+// Route Sabun
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/product/{product:slug}', [ProductController::class, 'show']);
-Route::get('/cart', [CartController::class, 'index']);
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
+Route::get('/user/{user:username}', function(User $user) {
+    return view('/products', [
+        'title' => "Product By : $user->username",
+        'products' => $user->product->load('category', 'user')
+    ]);
+});
+
+// Route Jawa
+Route::get('/cart', [CartController::class, 'index']);
 
 Route::get('/checkout', function () {
     return view('checkout', [
         'title' => 'CheckOut'
-    ]);
-});
-
-Route::get('/categories', function () {
-    return view('categories', [
-        'title' => 'Categories'
     ]);
 });
 
@@ -50,6 +54,7 @@ Route::get('/summary', function () {
     ]);
 });
 
+// Route Fathtin
 Route::get('/register', function () {
     return view('register.register', [
         'title' => 'register'

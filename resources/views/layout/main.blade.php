@@ -9,16 +9,14 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link href="/css/style.css" rel="stylesheet">
+  @yield('style')
 
   <title>We Shop | {{ $title }}</title>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" style="font-size: 25px;" href="/">We Shop</a>
   <nav class="navbar navbar-expand-lg navbar-light" style="background: #00ff00;">
-    <div class="container-fluid">
+    <div class="container">
       <a class="navbar-brand" href="/">We Shop</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,7 +48,7 @@
     </div>
   </nav>
 
-  <div class="container">
+  <div class="container mt-3">
     @yield('container')
   </div>
 
