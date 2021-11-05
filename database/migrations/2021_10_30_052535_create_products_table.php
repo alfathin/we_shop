@@ -21,6 +21,8 @@ class CreateProductsTable extends Migration
             $table->string('slug')->unique();
             $table->bigInteger('excerpt');
             $table->longText('body');
+            $table->integer('total_stock');
+            $table->integer('stock_left');
             $table->timestamp('published_at');
             $table->timestamps();
         });

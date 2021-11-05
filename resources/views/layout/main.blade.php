@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background: #00ff00;">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background: #eed70d;">
     <div class="container">
       <a class="navbar-brand" href="/">We Shop</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@
     </div>
   </nav>
 
-  <div class="container mt-3">
+  <div class="container-sm mt-3">
     @yield('container')
   </div>
 
