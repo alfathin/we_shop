@@ -8,8 +8,16 @@
                 <div class="card-header">
                     <h2> We Shop Login</h2>
                 </div>
+
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        <b>Oppss!</b>{{session('error')}}
+                    </div>
+                @endif
+
                 <div class="card-body">
-                    <form>
+                    <form action="{{route('actionlogin')}}" method="POST">
+                    @csrf
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Email address</label>
                           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="We'll never share your email with anyone else.">

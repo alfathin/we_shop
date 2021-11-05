@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        'title' => 'Home'
-    ]);
-});
+// Route::get('/', function () {
+//     return view('home', [
+//         'title' => 'Home'
+//     ]);
+// });
 // Route::get('/products', function () {
 //     return view('products', [
 //         'title' => 'Products'
@@ -55,14 +56,16 @@ Route::get('/register', function () {
     ]);
 });
 
-Route::get('/login', function () {
-    return view('login.login', [
-        'title' => 'login'
-    ]);
-});
+// Route::get('/login', function () {
+//     return view('login.login', [
+//         'title' => 'login'
+//     ]);
+// });
 
-// Route::get('/login', 'LoginController@validation')->name('vlLogin');
-// Route::post('/login', 'LoginController@validation')->name('vlLogin');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
+Route::get('/', [LoginController::class, 'home'])->name('home')->middleware('auth');
+Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 // Route::get('/', 'UserController@index')->name('home');
 // Route::get('/produk', 'UserController@index')->name('produk');
 // Route::get('/cart', 'UserController@index')->name('cart');
