@@ -38,7 +38,10 @@
         </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a href="/login" class="btn btn-primary login">Login</a>
+            <a class="nav-link active" aria-current="page" href="#"></a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('actionlogout')}}" class="btn btn-danger login">Logout</a>
           </li>
         </ul>
       </div>
