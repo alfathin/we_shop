@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background: #eed70d;">
+  <nav class="navbar navbar-expand-lg navbar-light shadow" style="background: #eed70d;">
     <div class="container">
       <a class="navbar-brand" href="/">We Shop</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,18 +37,30 @@
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"></a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('actionlogout')}}" class="btn btn-danger login">Logout</a>
-          </li>
+          @auth
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Welcome back, {{ auth()->user()->username }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">My Dashboard</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item login" href="{{ route('actionlogout') }}">Logout</a></li>
+                </ul>
+              </div>
+          @else 
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a href="{{ route('actionlogin') }}" class="btn btn-info login">Login</a>
+                </li>
+              </ul>
+          @endauth
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container-sm mt-3">
+  <div class="container-fluid mt-3">
     @yield('container')
   </div>
 

@@ -30,7 +30,7 @@
             <h4 class="mb-4">Summary</h4>
             <div class="mb-2 item d-flex justify-content-between">
                 <p>Total Harga</p>
-                <p>Rp. {{$product->excerpt}}</p>
+                <p>Rp. 200.000</p>
             </div>
             <div class="mb-2 item d-flex justify-content-between">
                 <p>Total diskon</p>

@@ -32,6 +32,43 @@ h1 {
     font-size: 30px;
 }
 
+.judul {
+    font-weight: 500;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.harga {
+    background-color: rgb(173, 157, 157);
+    padding: 15px;
+    font-size: 20px;
+    color: #eed70d;
+    border-right: 3px dashed #eed70d;
+}
+
+.baris {
+    line-height: 35px;
+}
+
+.teks {
+    margin-left: 50px;
+}
+
+.teks001 {
+    color: rgb(167, 164, 164);
+}
+
+.beli {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 -6px 5px -5px rgb(172, 172, 172) !important;
+}
+
 @media (min-width: 768px) {
     .pin {
         font-size: 20px;
@@ -39,5 +76,20 @@ h1 {
 
     h1 {
         font-size: 50px;
+    }
+
+    .gambar {
+        margin-top: 30px;
+    }
+
+    .kartu001 {
+        position: absolute;
+        top: 70px;
+        left: 0;
+    }
+
+    .judul {
+        margin-bottom: 20px;
+        font-size: 30px;
     }
 }

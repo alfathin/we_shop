@@ -8,14 +8,14 @@
     <h1 class="my-4 text-center">{{ $title }}</h1>
     <div class="row">
         @foreach ( $products as $product )
-        <div class="col col-md-4">
+        <div class="col col-md-2">
             <div class="tinggi card mb-3">
-                <div class="position-absolute px-3 py-2 text-white rounded-end pin"><a href="categories/{{ $product->category->slug}}" class="text-decoration-none text-white">{{ $product->category->name }}</a></div>
+                <div class="position-absolute px-3 py-2 text-white rounded-bottom pin"><a href="categories/{{ $product->category->slug}}" class="text-decoration-none text-white">{{ $product->category->name }}</a></div>
                 <a href="/product/{{ $product->slug }}" class="text-decoration-none text-dark">
                     <img src="/img/bun1.jpg" class="card-img-top" alt=" . . .">
                     <div class="card-body boday"> 
                         <h5 class="card-title fw-normal">{{ $product->title }}</h5>
-                        <p class="harga card-text fs-4">Rp{{ $product->excerpt }}</p>
+                        <p class="card-text fs-4">Rp{{ $product->excerpt }}</p>
                     </div>
                 </a>
             </div>

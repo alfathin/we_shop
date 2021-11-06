@@ -3,7 +3,7 @@
 @section('container')
 
 <div class="row justify-content-center">
-    <div class="col-6">
+    <div class="col-6" style="width: 30rem;">
         @if(session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
@@ -20,10 +20,7 @@
         <div class="card mt-5" style="width: 30rem;">
                 <div class="card-header">
                     <h2> We Shop Login</h2>
-                </div>
-
-
-                
+                </div>     
                 <div class="card-body">
                     <form action="{{route('actionlogin')}}" method="POST">
                     @csrf
