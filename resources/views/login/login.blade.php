@@ -22,7 +22,7 @@
                     <h2> We Shop Login</h2>
                 </div>     
                 <div class="card-body">
-                    <form action="{{route('actionlogin')}}" method="POST">
+                    <form action="{{ route('actionlogin') }}" method="post">
                     @csrf
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Email address</label>

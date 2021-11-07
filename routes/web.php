@@ -75,9 +75,9 @@ Route::get('/summary', function () {
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
 Route::put('/actionregister', [RegisterController::class, 'actionregister'])->name('actionregister');
 
-Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
-Route::get('/actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
+Route::post('/actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
 
 Route::get('/', [HomeController::class, 'home'])->name('home')->middleware('auth');
 // Route::get('/', 'UserController@index')->name('home');
