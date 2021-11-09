@@ -10,7 +10,7 @@
                 </div>
             {{-- </div> --}}
             {{-- <div class="row justify-content-end kartu001"> --}}
-                <div class="col-md-8">
+                <div class="col-md-8 mb-5">
                     <div class="card-body"> 
                         <h5 class="card-title judul">{{ $product->title }}</h5>
                         <p class="card-text harga shadow mb-2">Rp{{ $product->excerpt }}</p>
@@ -22,7 +22,7 @@
                         <small>
                             <p class="mb-2">By <a href="/user/{{ $product->user->username }}">{{ $product->user->name }}</a></p>
                         </small>
-                        <p class="card-text ">{!! $product->body !!}</p>
+                        <p class="card-text badan">{!! $product->body !!}</p>
                     </div>
                 </div>
             </div>     

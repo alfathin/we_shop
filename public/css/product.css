@@ -71,6 +71,10 @@ h1 {
     margin-bottom: 50px;
 }
 
+.badan {
+    margin-top: 7px;
+}
+
 @media (min-width: 768px) {
     .pin {
         font-size: 15px;
