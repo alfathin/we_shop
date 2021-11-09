@@ -43,7 +43,7 @@
                   Welcome back, {{ auth()->user()->username }}
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">My Dashboard</a></li>
+                  <li><a class="dropdown-item" href="/dashboard">My Dashboard</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li>
                     <form action="/actionlogout" method="post">
