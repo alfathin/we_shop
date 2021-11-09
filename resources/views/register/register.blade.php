@@ -1,12 +1,15 @@
 @extends('layout.main')
+@section('style')
+    <link rel="stylesheet" href="/css/login.css">
+@endsection
 
 @section('container')
 
-    <div class="row justify-content-center">
-        <div class="col-6">
-            <div class="card mt-4" style="width: 30rem;">
+    <div class="row justify-content-center haji">
+        <div class="col-md-6">
+            <div class="card mt-4">
                 <div class="card-header">
-                    <h2> We Shop Register</h2>
+                    <h2 class="text-center">We Shop Register</h2>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('actionregister') }}" method="POST">
