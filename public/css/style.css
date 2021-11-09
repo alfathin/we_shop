@@ -7,6 +7,9 @@ p {
     padding: 0;
     margin: 0;
 }
+body {
+    padding-top: 3rem;
+}
 .item {
     color: #979595;
     font-size: 0.9rem;
