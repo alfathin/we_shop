@@ -38,8 +38,8 @@
         </ul>
         <ul class="navbar-nav ms-auto">
           @auth
-              <div class="dropdown">
-                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%">
+              <div class="dropdown login">
+                <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%">
                   Welcome back, {{ auth()->user()->username }}
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -56,7 +56,7 @@
           @else 
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a href="/login" class="btn btn-dark border-0 login">Login</a>
+                  <a href="/login" class="btn text-white border-0 login">Login</a>
                 </li>
               </ul>
           @endauth
@@ -67,6 +67,10 @@
 
   <div class="home-page">
     @yield('home')
+  </div>
+
+  <div class="product">
+    @yield('product')
   </div>
 
   <div class="container mt-3">

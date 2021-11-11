@@ -2,9 +2,8 @@ a {
     text-decoration: none;
 }
 
-.login {
-    width: 100%;
-    background-color: #ac3931;
+body {
+    padding-top: 3.5rem;
 }
 
 .pin {
@@ -73,6 +72,10 @@ h1 {
 
 .badan {
     margin-top: 7px;
+}
+
+.gambar {
+    background-size: cover;
 }
 
 @media (min-width: 768px) {
