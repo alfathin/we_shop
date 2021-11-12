@@ -10,6 +10,8 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\User;
+
 // |--------------------------------------------------------------------------
 // | Web Routes
 // |--------------------------------------------------------------------------
@@ -48,7 +50,8 @@ Route::get('/user/{user:username}', function (User $user) {
 });
 
 // Route Jawa
-Route::get('/cart', [CartController::class, 'index']);
+Route::get('/cart', [CartController::class, 'index'])->middleware('auth');
+// Route::get('/', 'UserController@index')->name('home');;
 
 Route::get('/checkout', function () {
     return view('checkout', [
@@ -78,12 +81,12 @@ Route::get('/summary', function () {
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
 Route::put('/actionregister', [RegisterController::class, 'actionregister'])->name('actionregister');
 
-Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
-Route::get('/actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
+Route::post('/actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
 
-Route::get('/', [HomeController::class, 'home'])->name('home')->middleware('auth');
-// Route::get('/', 'UserController@index')->name('home');
+Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/categories/{categories:slug}', [HomeController::class, 'show'])->name('show');
 // Route::get('/produk', 'UserController@index')->name('produk');
 // Route::get('/cart', 'UserController@index')->name('cart');
 // Route::get('/checkout', 'UserController@index')->name('checkout');

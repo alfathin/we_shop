@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background: #00ff00;">
+  <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background: #e5d352;">
     <div class="container">
       <a class="navbar-brand" href="/">We Shop</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,20 +37,46 @@
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"></a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('actionlogout')}}" class="btn btn-danger login">Logout</a>
-          </li>
+          @auth
+              <div class="dropdown login">
+                <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%">
+                  Welcome back, {{ auth()->user()->username }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="/dashboard">My Dashboard</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                    <form action="/actionlogout" method="post">
+                      @csrf
+                      <button type="submit" class="dropdown-item">Logout</button>
+                    </form>
+                  </li>
+                </ul>
+              </div>
+          @else 
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a href="/login" class="btn text-white border-0 login">Login</a>
+                </li>
+              </ul>
+          @endauth
         </ul>
       </div>
     </div>
   </nav>
 
+  <div class="home-page">
+    @yield('home')
+  </div>
+
+  <div class="product">
+    @yield('product')
+  </div>
+
   <div class="container mt-3">
     @yield('container')
   </div>
+
 
   <script src="https://unpkg.com/feather-icons"></script>
   <script>
