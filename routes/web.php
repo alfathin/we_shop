@@ -6,6 +6,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 // |--------------------------------------------------------------------------
@@ -35,7 +37,10 @@ Route::get('/product/{product:slug}', [ProductController::class, 'show']);
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
-Route::get('/user/{user:username}', function(User $user) {
+Route::put('/product/addreview', [ProductController::class, 'addreview'])->name('addreview');
+Route::get('/products/search/{key}', [ProductController::class, 'search']);
+
+Route::get('/user/{user:username}', function (User $user) {
     return view('/products', [
         'title' => "Product By : $user->username",
         'products' => $user->product->load('category', 'user')

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 use App\Models\Product;
+use App\Models\Review;
 use App\Models\User;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
         Product::factory(20)->create();
+        Review::factory(10)->create();
         Category::create([
             'name' => 'Web Programming',
             'slug' => 'web-programming'
@@ -32,4 +34,3 @@ class DatabaseSeeder extends Seeder
         ]);
     }
 }
-
