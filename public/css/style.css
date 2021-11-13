@@ -7,6 +7,16 @@ p {
     padding: 0;
     margin: 0;
 }
+body {
+    padding-top: 3rem;
+}
+
+.login {
+    width: 100%;
+    background-color: #6a8523;
+    border-radius: 5px;
+}
+
 .item {
     color: #979595;
     font-size: 0.9rem;

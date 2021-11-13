@@ -2,8 +2,8 @@ a {
     text-decoration: none;
 }
 
-.login {
-    width: 100%;
+body {
+    padding-top: 3.5rem;
 }
 
 .pin {
@@ -14,10 +14,6 @@ a {
 .card-title {
     font-weight: normal;
     font-size: 15px;
-}
-
-.harga {
-    font-weight: 600;
 }
 
 .boday {
@@ -39,11 +35,12 @@ h1 {
 }
 
 .harga {
-    background-color: rgb(173, 157, 157);
+    background-color: #f6fafc;
     padding: 15px;
     font-size: 20px;
-    color: #eed70d;
-    border-right: 3px dashed #eed70d;
+    color: #e5d352;
+    border-right: 3px dashed #e5d352;
+    font-weight: 600;
 }
 
 .baris {
@@ -69,9 +66,21 @@ h1 {
     box-shadow: 0 -6px 5px -5px rgb(172, 172, 172) !important;
 }
 
+.kartu {
+    margin-bottom: 50px;
+}
+
+.badan {
+    margin-top: 7px;
+}
+
+.gambar {
+    background-size: cover;
+}
+
 @media (min-width: 768px) {
     .pin {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     h1 {
@@ -80,6 +89,8 @@ h1 {
 
     .gambar {
         margin-top: 30px;
+        border: 5px solid lightgray;
+        border-radius: 5px;
     }
 
     .kartu001 {
@@ -92,4 +103,8 @@ h1 {
         margin-bottom: 20px;
         font-size: 30px;
     }
+
+    /* .login {
+        width: 30%;
+    } */
 }
