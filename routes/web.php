@@ -48,9 +48,6 @@ Route::get('/user/{user:username}', function (User $user) {
     ]);
 });
 
-// Route Jawa
-Route::get('/cart', [CartController::class, 'index'])->middleware('auth');
-// Route::get('/', 'UserController@index')->name('home');;
 
 Route::get('/checkout', function () {
     return view('checkout', [
@@ -90,3 +87,9 @@ Route::get('/categories/{categories:slug}', [HomeController::class, 'show'])->na
 // Route::get('/cart', 'UserController@index')->name('cart');
 // Route::get('/checkout', 'UserController@index')->name('checkout');
 // Route::get('sumary', 'UserController@index')->name('sumary');
+
+Route::get('cart', [CartController::class, 'cartList'])->name('cart.list')->middleware('auth');
+Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store')->middleware('auth');
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update')->middleware('auth');
+Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove')->middleware('auth');
+Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear')->middleware('auth');
