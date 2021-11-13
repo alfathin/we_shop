@@ -6,9 +6,9 @@
 @section('container')
 
 <h1 class="my-4 text-center">{{ $title }}</h1>
-<form action="product/search" method="POST">
+<form action="{url('search')}" method="post">
     <div class="input-group mb-3">
-        <input type="text" name="key" class="form-control" placeholder="search something">
+        <input type="text" name="title" class="form-control" placeholder="search something">
         <button type="submit" class="input-group-text">search</button>
     </div>
 </form>
