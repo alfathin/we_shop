@@ -28,8 +28,8 @@
                     <form action="{{ route('actionlogin') }}" method="post">
                     @csrf
                     <div class="form-floating mb-3">
-                        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Email address</label>
+                        <input type="text" name="username" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Username</label>
                     </div>
                     <div class="form-floating">
                         <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
