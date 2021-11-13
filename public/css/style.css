@@ -30,6 +30,10 @@ p {
     .item-cart {
         margin-right: 0;
     }
+    .rs {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
     .summary {
         position: fixed;
         bottom: 0;
