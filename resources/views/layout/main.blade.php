@@ -27,9 +27,6 @@
             <a class="nav-link {{ Request::is('products') ? 'active' : ''  }}" href="/products">Product</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('cart') ? 'active' : ''  }}" href="/cart">Cart</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link {{ Request::is('checkout') ? 'active' : ''  }}" href="/checkout">CheckOut</a>
           </li>
           <li class="nav-item">
@@ -37,6 +34,9 @@
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
+          <li class="nav-item me-3">
+            <a class="nav-link {{ Request::is('cart') ? 'active' : ''  }} ms-auto" href="/cart"><span data-feather="shopping-bag"></span></a>
+          </li>
           @auth
               <div class="dropdown login">
                 <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%">
