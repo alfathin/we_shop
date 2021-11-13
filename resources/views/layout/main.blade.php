@@ -38,24 +38,6 @@
         </ul>
         <ul class="navbar-nav ms-auto">
           @auth
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Welcome back, {{ auth()->user()->username }}
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">My Dashboard</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item login" href="{{ route('actionlogout') }}">Logout</a></li>
-            </ul>
-          </div>
-          @else
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a href="{{ route('login') }}" class="btn btn-info login">Login</a>
-            </li>
-          </ul>
           <div class="dropdown login">
             <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%">
               Welcome back, {{ auth()->user()->username }}
