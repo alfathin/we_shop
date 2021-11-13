@@ -10,7 +10,6 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
-use App\Models\User;
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -40,7 +39,7 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
 Route::put('/product/addreview', [ProductController::class, 'addreview'])->name('addreview');
-Route::get('/products/search/{key}', [ProductController::class, 'search']);
+Route::get('/products/search', [ProductController::class, 'search'])->name('search');
 
 Route::get('/user/{user:username}', function (User $user) {
     return view('/products', [

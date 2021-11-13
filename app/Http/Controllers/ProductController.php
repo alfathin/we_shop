@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\Console\Input\Input;
 
 class ProductController extends Controller
 {
@@ -45,7 +46,16 @@ class ProductController extends Controller
 
         return redirect()->route('product', ['slug' => $request->url])->with('success', 'your review was sended!');
     }
-    public function search($key)
+    public function search(Request $request)
     {
+        dd($request->key);
+        $product = Product::where('title', 'LIKE', '%$request->key%')
+            ->orwhere(function ($query) {
+                $query->whereRelation('user', 'name', 'like', '%$request->key%');
+            })->get();
+        return view('search', [
+            'product' => compact('product'),
+            'title' => 'search'
+        ]);
     }
 }
