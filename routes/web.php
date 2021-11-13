@@ -39,7 +39,7 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
 Route::put('/product/addreview', [ProductController::class, 'addreview'])->name('addreview');
-Route::get('/products/search', [ProductController::class, 'search'])->name('search');
+Route::post('/products/search', [ProductController::class, 'search']);
 
 Route::get('/user/{user:username}', function (User $user) {
     return view('/products', [
