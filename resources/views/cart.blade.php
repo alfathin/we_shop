@@ -1,15 +1,15 @@
 @extends('layout.main')
 
 @section('container')
-<section class="d-flex mt-5 mb-5">
+<section class="container d-flex mt-5 mb-5">
     <div class="item-cart">
-        <div class="shadow p-3 bg-body rounded ">
+        <div class="rs shadow p-3 bg-body rounded ">
             <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
                 <b>Select All</b>
             </label>
         </div>
-        <div class="mt-3 shadow p-3 bg-body rounded d-flex align-items-center justify-content-between">
+        <div class="rs mt-3 shadow p-3 bg-body rounded d-flex align-items-center justify-content-between">
             <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
             <div class="img img-thumbnail mx-2">
                 <img src="/download.jfif" style="width: 100%; height:auto" alt="product">

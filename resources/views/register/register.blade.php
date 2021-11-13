@@ -15,36 +15,36 @@
                     <form action="{{ route('actionregister') }}" method="POST">
                         @method('put')
                     @csrf
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Insert Your Name" value="{{ old('name') }}">
+                        <div class="mb-3 form-floating">
+                                <input type="name" name="name" class="form-control @error('name') is-invalid @enderror" id="floatingInput" placeholder="name@example.com" value="{{ old('name') }}">
+                                <label for="floatingInput">Name</label>
                             <div class="invalid-feedback">
                                 @error('name')
                                     {{ $message }}
                                 @enderror
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" placeholder="Insert Your Username Account" value="{{ old('username') }}">
+                        <div class="mb-3 form-floating">
+                            <input type="username" name="username" class="form-control @error('username') is-invalid @enderror" id="floatingInput" placeholder="name@example.com" value="{{ old('username') }}">
+                            <label for="floatingInput">Username</label>
                             <div class="invalid-feedback">
                                 @error('username')
                                     {{ $message }}
                                 @enderror
                             </div>
                         </div>
-                        <div class="mb-3">
-                          <label for="email" class="form-label">Email address</label>
-                          <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="We'll never share your email with anyone else." value="{{ old('email') }}">
+                        <div class="mb-3 form-floating">
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="floatingInput" placeholder="name@example.com" value="{{ old('email') }}">
+                            <label for="floatingInput">Email</label>
                             <div class="invalid-feedback">
                                 @error('email')
                                     {{ $message }}
                                 @enderror
                             </div>
                         </div>
-                        <div class="mb-3">
-                          <label for="password" class="form-label">Password</label>
-                          <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="exampleInputPassword1" placeholder="Enter Your Password">
+                        <div class="mb-3 form-floating">
+                            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="floatingInput" placeholder="name@example.com" value="{{ old('password') }}">
+                            <label for="floatingInput">Password</label>
                             <div class="invalid-feedback">
                                 @error('password')
                                     {{ $message }}
