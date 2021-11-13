@@ -13,7 +13,7 @@
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/1600x900/?{{ $categories[0]->slug }}')">
                 <div class="container">
                 <div class="carousel-caption text-start">
                     <h1>Welcome To We Shop!</h1>
@@ -30,7 +30,7 @@
                 </div>
                 </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" style="background-image: url('https://source.unsplash.com/1600x900/?{{ $categories[1]->slug }}')">
                 <div class="container">
                 <div class="carousel-caption">
                     <h1>Another example headline.</h1>
@@ -39,7 +39,7 @@
                 </div>
                 </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" style="background-image: url('https://source.unsplash.com/1600x900/?{{ $categories[2]->slug }}')">
                 <div class="container">
                 <div class="carousel-caption text-end">
                     <h1>One more for good measure.</h1>
@@ -97,7 +97,7 @@
                         <div class="col-lg-4">
                             {{-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> --}}
 
-                            <img src="/img/rpl21.jpg" alt="{{ $category->name }}" class="bd-placeholder-img rounded-circle" width="180" height="140" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text>
+                            <img src="https://source.unsplash.com/140x140/?{{ $category->slug }}" alt="{{ $category->name }}" class="bd-placeholder-img rounded-circle" width="140" height="140" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text>
 
                             <h2>{{ $category->name }}</h2>
                             <p>This is Category.</p>

@@ -23,9 +23,10 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-    height: 32rem;
-    background-image: url("/img/rpl22.jpg");
+    height: 30rem;
+    /* background-image: url("https://source.unsplash.com/1600x900/?nature,water"); */
     background-size: cover;
+    background-position: center;
 }
 
 .carousel-caption p,
@@ -39,6 +40,7 @@ h1 {
     min-width: 100%;
     height: 140%;
 } */
+
 .carousel-item::after {
     content: "";
     display: block;
@@ -123,10 +125,10 @@ h1 {
 }
 
 @media (max-width: 576px) {
-    .carousel-item {
+    /* .carousel-item {
         background-position: -200px 0;
         height: 25rem;
-    }
+    } */
 }
 
 @media (min-width: 992px) {

@@ -14,7 +14,6 @@
 </form>
 
 <div class="row">
-
     @foreach ( $products as $product )
     <div class="col col-md-3">
         <div class="tinggi card mb-3">
