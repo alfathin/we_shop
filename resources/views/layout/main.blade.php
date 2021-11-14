@@ -35,7 +35,16 @@
         </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item me-3">
-            <a class="nav-link {{ Request::is('cart') ? 'active' : ''  }} ms-auto" href="/cart"><span data-feather="shopping-bag"></span></a>
+
+            <a class="nav-link {{ Request::is('cart') ? 'active' : ''  }}  position-relative" href="/cart">
+              @auth
+              <span class="position-absolute start-100 translate-middle  badge rounded-pill bg-danger">
+                {{ Cart::session(auth()->user()->id)->getTotalQuantity()}}
+
+                <span class="visually-hidden">unread messages</span>
+                @endauth
+              </span><span data-feather="shopping-bag"></span>
+            </a>
           </li>
           @auth
           <div class="dropdown login">

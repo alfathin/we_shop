@@ -56,7 +56,15 @@
 </div>
 </div>
 <div class="beli">
-    <button class="btn btn-light rounded-0" style="width: 60%; height: 50px;">Insert to Cart</button>
+    <form style="width:60%;" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" value="{{ $product->id }}" name="id">
+        <input type="hidden" value="{{ $product->title }}" name="name">
+        <input type="hidden" value="{{ $product->excerpt }}" name="price">
+        <input type="hidden" value="{{ $product->slug }}" name="image">
+        <input type="hidden" value="1" name="quantity">
+        <button class="btn btn-light rounded-0" style="width: 100%; height: 50px;">Add To Cart</button>
+    </form>
     <button class="check btn btn-light rounded-0 border-0" style="width: 40%; height: 50px; background-color: #e5d352;">Buy Now</button>
 </div>
 @endsection

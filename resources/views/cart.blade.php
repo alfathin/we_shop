@@ -9,14 +9,15 @@
                 <b>Select All</b>
             </label>
         </div>
+        @foreach($cartItems as $item)
         <div class="rs mt-3 shadow p-3 bg-body rounded d-flex align-items-center justify-content-between">
             <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
             <div class="img img-thumbnail mx-2">
                 <img src="/download.jfif" style="width: 100%; height:auto" alt="product">
             </div>
             <div style="flex: 1;">
-                <p>sapatu bagsu langsung beli lah</p>
-                <p class="fw-bolder">Rp900.000</p>
+                <p>{{$item->name}}</p>
+                <p class="fw-bolder">Rp{{$item->price}}</p>
             </div>
             <div>
                 <i data-feather="trash-2"></i>
@@ -24,6 +25,7 @@
             </div>
 
         </div>
+        @endforeach
     </div>
     <div class="summary shadow p-3 bg-body rounded">
         <div class="detail-summary">
