@@ -44,7 +44,7 @@
         <div class="detail-summary">
             <h4 class="mb-4">Summary</h4>
             <div class="mb-2 item d-flex justify-content-between">
-                <p>Total</p>
+                <p>Total (<span id="jml">0 goods</span>)</p>
                 <p id="harga">Rp0</p>
             </div>
             <div class="mb-2 item d-flex justify-content-between">
@@ -59,10 +59,10 @@
         </div>
         <div class="res">
             <div class="resa mb-3  d-flex justify-content-between">
-                <b class="fw-normal">Total Harga</b>
+                <b class="fw-normal">Total Price</b>
                 <b id="harga">Rp0</b>
             </div>
-            <button class="check btn btn-primary" style="width:100%">Checkout</button>
+            <button id="check" class=" btn btn-primary" style="width:100%" disabled>Checkout</button>
         </div>
     </div>
 </section>
@@ -78,7 +78,6 @@
 @endif
 <script>
     $(document).ready(function() {
-
         let obj = [];
         $('input[type=checkbox][name=select]').change(function() {
             if (this.checked) {
@@ -87,7 +86,7 @@
             } else {
                 for (let index = 0; index < obj.length; index++) {
                     if (obj[index][0] === `${this.id}`) {
-                        obj.splice(i, 1);
+                        obj.splice(index, 1);
                         break;
                     }
                 }
@@ -97,8 +96,15 @@
             for (var i = 0; i < obj.length; i++) {
                 total += obj[i][1] << 0;
             }
+            if (obj.length > 0) {
+                $("#check").prop('disabled', false);
+            } else {
+                $("#check").prop('disabled', true);
+            }
             $("#harga").text("Rp" + total);
             $("b#harga").text("Rp" + total);
+            $("#jml").text(obj.length);
+            $("#pass").val(obj);
         });
     });
 </script>
