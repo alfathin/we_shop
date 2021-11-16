@@ -31,7 +31,7 @@ class CartController extends Controller
             'quantity' => $request->quantity,
             'associatedModel' => $product
         ));
-        session()->flash('success', 'Item Cart is Updated Successfully !');
+        session()->flash('success', 'Item Cart is Added Successfully !');
         return redirect()->back();
     }
 
