@@ -4,7 +4,17 @@
 @endsection
 
 @section('container')
-
+<div class="position-fixed start-50 translate-middle-x p-3" style="top:45px;z-index: 9999">
+    <div id="liveToast" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2500">
+        <div class="d-flex">
+            <div class="toast-body">
+                {{ session('success') }}
+                {{ session('notice') }}
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-md-4">
         <div class="sukabumi">
@@ -59,12 +69,20 @@
     <form style="width:60%;" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="hidden" value="{{ $product->id }}" name="id">
-        <input type="hidden" value="{{ $product->title }}" name="name">
-        <input type="hidden" value="{{ $product->excerpt }}" name="price">
-        <input type="hidden" value="{{ $product->slug }}" name="image">
         <input type="hidden" value="1" name="quantity">
         <button class="btn btn-light rounded-0" style="width: 100%; height: 50px;">Add To Cart</button>
     </form>
     <button class="check btn btn-light rounded-0 border-0" style="width: 40%; height: 50px; background-color: #e5d352;">Buy Now</button>
 </div>
+@endsection
+
+@section('script')
+@if(session()->has('success') || session()->has('notice'))
+<script>
+    var toastLiveExample = document.getElementById('liveToast')
+    var toast = new bootstrap.Toast(toastLiveExample)
+
+    toast.show()
+</script>
+@endif
 @endsection
