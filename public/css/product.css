@@ -21,7 +21,7 @@ body {
 }
 
 .tinggi {
-    box-shadow: 5px 5px 5px rgb(172, 172, 172) !important;
+    box-shadow: 3px 3px 5px rgb(172, 172, 172) !important;
 }
 
 h1 {
@@ -76,6 +76,12 @@ h1 {
 
 .gambar {
     background-size: cover;
+}
+
+@media (max-width: 576px) {
+    .geser {
+        width: 100vmax;
+    }
 }
 
 @media (min-width: 768px) {

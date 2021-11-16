@@ -23,7 +23,9 @@
             <small>
                 <p class="mb-2">By <a href="/user/{{ $product->user->username }}">{{ $product->user->name }}</a></p>
             </small>
-            <p class="card-text badan">{!! $product->body !!}</p>
+            <article>
+                <p class="card-text badan">{!! $product->body !!}</p>
+            </article>
             @if($reviews != null)
             @foreach($reviews as $review)
             <div class="card-text">

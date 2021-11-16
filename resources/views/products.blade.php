@@ -13,7 +13,7 @@
     </div>
 </form>
 
-<div class="row">
+<div class="row geser2">
     @foreach ( $products as $product )
     <div class="col col-md-3">
         <div class="tinggi card mb-3">

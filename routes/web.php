@@ -6,7 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
-use App\Models\Product;
+use App\Http\Controllers\ProfileController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +40,12 @@ Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
 Route::put('/product/addreview', [ProductController::class, 'addreview'])->name('addreview');
 Route::post('/products/search', [ProductController::class, 'search']);
+
+Route::resource('/profile/products', ProfileController::class)->middleware('auth');
+Route::get('/profile', function() {
+    return view('profiles.index');
+})->middleware('auth');
+
 
 Route::get('/user/{user:username}', function (User $user) {
     return view('/products', [
