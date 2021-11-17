@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Nette\Utils\Json;
 
 class checkoutController extends Controller
 {
@@ -13,9 +15,18 @@ class checkoutController extends Controller
      */
     public function index(Request $request)
     {
-        dd($request->session()->get('checkout'));
+        $checkout = $request->session()->get('checkout');
+        $b = '$c = ' . (str_replace(array('[', ']'), array('array(', ')'), $checkout)) .
+            ';';
+        eval($b);
+        $items = (object)[];
+        for ($i = 0; $i < count($c); $i++) {
+            $product = Product::find($c[$i][0]);
+            $items->$i = $product;
+        }
         return view('checkout', [
-            'title' => 'CheckOut'
+            'title' => 'CheckOut',
+            'items' => $items,
         ]);
     }
 
