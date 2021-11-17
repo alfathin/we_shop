@@ -62,7 +62,11 @@
                 <b class="fw-normal">Total Price</b>
                 <b id="harga">Rp0</b>
             </div>
-            <button id="check" class=" btn btn-primary" style="width:100%" disabled>Checkout</button>
+            <form action="{{ route('checkout.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input id="pass" type="hidden" value="" name="check">
+                <button id="check" class=" btn btn-primary" style="width:100%" disabled>Checkout</button>
+            </form>
         </div>
     </div>
 </section>
@@ -104,7 +108,7 @@
             $("#harga").text("Rp" + total);
             $("b#harga").text("Rp" + total);
             $("#jml").text(obj.length);
-            $("#pass").val(obj);
+            $("#pass").val(JSON.stringify(obj));
         });
     });
 </script>

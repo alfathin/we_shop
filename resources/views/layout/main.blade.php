@@ -27,9 +27,6 @@
             <a class="nav-link {{ Request::is('products') ? 'active' : ''  }}" href="/products">Product</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('checkout') ? 'active' : ''  }}" href="/checkout">CheckOut</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link {{ Request::is('summary') ? 'active' : ''  }}" href="/summary">Sumary</a>
           </li>
         </ul>
