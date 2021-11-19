@@ -11,7 +11,6 @@ class CartController extends Controller
     {
         $userId = auth()->user()->id;
         $cartItems = \Cart::session($userId)->getContent();
-        // dd($cartItems);
         return view('cart', compact('cartItems'), [
             'title' => 'Category',
         ]);
@@ -21,18 +20,19 @@ class CartController extends Controller
     public function addToCart(Request $request)
     {
         $userId = auth()->user()->id;
-        \Cart::session($userId)->add([
-            'id' => $request->id,
-            'name' => $request->name,
-            'price' => $request->price,
+        if (\Cart::session($userId)->get($request->id)) {
+            return redirect()->back()->with('notice', 'This item is already in your basket, check your cart');
+        }
+        $product = Product::find($request->id);
+        \Cart::session($userId)->add(array(
+            'id' => $product->id,
+            'name' => $product->title,
+            'price' => $product->excerpt,
             'quantity' => $request->quantity,
-            'attributes' => array(
-                'image' => $request->image,
-            )
-        ])->session($request->id);
-        session()->flash('success', 'Product is Added to Cart Successfully !');
-
-        return redirect()->route('cart.list');
+            'associatedModel' => $product
+        ));
+        session()->flash('success', 'Item Cart is Added Successfully !');
+        return redirect()->back();
     }
 
     public function updateCart(Request $request)
@@ -54,9 +54,9 @@ class CartController extends Controller
 
     public function removeCart(Request $request)
     {
-        \Cart::remove($request->id);
+        $userId = auth()->user()->id;
+        \Cart::session($userId)->remove($request->id);
         session()->flash('success', 'Item Cart Remove Successfully !');
-
         return redirect()->route('cart.list');
     }
 

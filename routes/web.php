@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\checkoutController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
@@ -43,7 +44,7 @@ Route::post('/products/search', [ProductController::class, 'search']);
 
 Route::get('/profile/products/checkSlug', [ProfileController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/profile/products', ProfileController::class)->middleware('auth');
-Route::get('/profile', function() {
+Route::get('/profile', function () {
     return view('profiles.index');
 })->middleware('auth');
 
@@ -56,11 +57,11 @@ Route::get('/user/{user:username}', function (User $user) {
 });
 
 
-Route::get('/checkout', function () {
-    return view('checkout', [
-        'title' => 'CheckOut'
-    ]);
-});
+//Route::get('/checkout', function () {
+//  return view('checkout', [
+//      'title' => 'CheckOut'
+//  ]);
+//});
 
 Route::get('/summary', function () {
     return view('summary', [
@@ -100,3 +101,7 @@ Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store')->m
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update')->middleware('auth');
 Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove')->middleware('auth');
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear')->middleware('auth');
+
+Route::post('checkout', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('auth');
+
+Route::get('/checkout', [checkoutController::class, 'index'])->name('checkout.index')->middleware('auth');;
