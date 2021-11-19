@@ -5,7 +5,7 @@
         <div class="row my-3">
             <div class="col-lg-8">
                 <h1 class="my-3">{{ $product->title }}</h1>
-                <a href="/dashboard/products" class="btn btn-success mb-3"><span data-feather="arrow-left"></span> Back to my all Product</a>
+                <a href="/profile/products" class="btn btn-success mb-3"><span data-feather="arrow-left"></span> Back to my all Product</a>
                 <a href="" class="btn btn-warning mb-3"><span data-feather="edit"></span> Edit</a>
                 <a href="" class="btn btn-danger mb-3"><span data-feather="x-circle"></span> Delete</a>
                 <div class="card mb-2">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class ProfileController extends Controller
 {
@@ -26,7 +28,9 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+        return view('profiles.products.create', [
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -37,7 +41,7 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
@@ -85,5 +89,11 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Product::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }

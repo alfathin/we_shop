@@ -41,6 +41,7 @@ Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 Route::put('/product/addreview', [ProductController::class, 'addreview'])->name('addreview');
 Route::post('/products/search', [ProductController::class, 'search']);
 
+Route::get('/profile/products/checkSlug', [ProfileController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/profile/products', ProfileController::class)->middleware('auth');
 Route::get('/profile', function() {
     return view('profiles.index');
