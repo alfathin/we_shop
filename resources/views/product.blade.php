@@ -18,7 +18,7 @@
 <div class="row">
     <div class="col-md-4">
         <div class="sukabumi">
-            <img src="/img/rpl22.jpg" class="img-thumbnail" alt="">
+            <img src="https://source.unsplash.com/1600x900/?{{ $product->category->slug }}" class="img-thumbnail" alt="">
         </div>
     </div>
     <div class="col-md-8 mb-5">

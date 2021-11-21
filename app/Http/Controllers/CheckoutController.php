@@ -6,7 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Nette\Utils\Json;
 
-class checkoutController extends Controller
+class CheckoutController extends Controller
 {
     /**
      * Display a listing of the resource.
