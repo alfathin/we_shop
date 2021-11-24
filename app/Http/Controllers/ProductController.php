@@ -21,8 +21,8 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        $reviews = $product->review()->with('user')->get();
         // $reviews = Review::whereBelongsTo($product)->get();
+        $reviews = $product->review()->with('user')->get();
 
         return view('product', [
             'title' => 'Detail Product',
@@ -44,18 +44,16 @@ class ProductController extends Controller
         ];
         Review::create($review);
 
-        return redirect()->route('product', ['slug' => $request->url])->with('success', 'your review was sended!');
+        return redirect()->route('product', ['product' => $request->url])->with('success', 'your review was sended!');
     }
     public function search(Request $request)
     {
-        dd($request->key);
-        $product = Product::where('title', 'LIKE', '%$request->key%')
-            ->orwhere(function ($query) {
-                $query->whereRelation('user', 'name', 'like', '%$request->key%');
-            })->get();
-        return view('search', [
-            'product' => compact('product'),
-            'title' => 'search'
+
+        // $products = Product::where('title', 'like', "%$request->key%")->get();
+
+        return view('products', [
+            'title' => 'search',
+            'products' =>  Product::where('title', 'like', "%$request->key%")->get()
         ]);
     }
 }

@@ -109,6 +109,11 @@ h1 {
         margin-bottom: 20px;
         font-size: 30px;
     }
+    .popup {
+        position: absolute;
+        z-index: 1;
+        display: block;
+    }
 
     /* .login {
         width: 30%;

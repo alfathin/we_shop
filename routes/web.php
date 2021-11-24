@@ -34,13 +34,13 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Route Sabun
+Route::post('/products', [ProductController::class, 'search']);
 Route::get('/products', [ProductController::class, 'index']);
-Route::get('/product/{product:slug}', [ProductController::class, 'show']);
+Route::get('/product/{product:slug}', [ProductController::class, 'show'])->name('product');
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
 Route::put('/product/addreview', [ProductController::class, 'addreview'])->name('addreview');
-Route::post('/products/search', [ProductController::class, 'search']);
 
 Route::get('/profile/products/checkSlug', [ProfileController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/profile/products', ProfileController::class)->middleware('auth');
