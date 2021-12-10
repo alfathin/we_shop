@@ -14,7 +14,7 @@
     </div>
     <div class="item-cart">
         <div class="rs shadow p-3 bg-body rounded ">
-            <input class="form-check-input me-2" type="checkbox">
+            <input class="form-check-input me-2" type="checkbox" name="selectAll">
             <label class="form-check-label" for="flexCheckDefault">
                 <b>Select All</b>
             </label>
@@ -109,6 +109,16 @@
             $("b#harga").text("Rp" + total);
             $("#jml").text(obj.length);
             $("#pass").val(JSON.stringify(obj));
+        });
+        $('input[type=checkbox][name=selectAll]').change(function() {
+            var app = <?php echo json_encode($cartItems); ?>;
+            let pa = []
+            if (this.checked) {
+                pa.push([`${app[1].id}`, `a`]);
+                console.log(pa);
+            } else {
+
+            }
         });
     });
 </script>
