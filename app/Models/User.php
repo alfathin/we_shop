@@ -43,12 +43,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
+
     public function product()
     {
         return $this->hasMany(Product::class);
     }
-    public function review()
+    public function role()
     {
-        return $this->hasMany(Review::class);
+        return $this->belongsToMany(Role::class, 'user_role', 'user_id', 'role_id');
     }
 }

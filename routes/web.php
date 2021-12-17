@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -104,4 +105,7 @@ Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear'
 
 Route::post('checkout', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('auth');
 
-Route::get('/checkout', [checkoutController::class, 'index'])->name('checkout.index')->middleware('auth');;
+Route::get('/checkout', [checkoutController::class, 'index'])->name('checkout.index')->middleware('auth');
+Route::prefix('admin')->group(function () {
+    Route::resource('user', UserController::class);
+});
