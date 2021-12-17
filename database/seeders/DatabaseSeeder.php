@@ -6,7 +6,7 @@ use App\Models\Category;
 use Illuminate\Database\Seeder;
 use App\Models\Product;
 use App\Models\Review;
-use App\Models\User;
+// use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create();
+        // User::factory(10)->create();
         Product::factory(20)->create();
-        Review::factory(10)->create();
+        // Review::factory(10)->create();
         Category::create([
             'name' => 'Web Programming',
             'slug' => 'web-programming'
@@ -31,6 +31,12 @@ class DatabaseSeeder extends Seeder
         Category::create([
             'name' => 'Personal',
             'slug' => 'personal'
+        ]);
+        $this->call([
+            UserSeeder::class,
+            PermissionSeeder::class,
+            RoleSeeder::class,
+            RolePermissionSeeder::class,
         ]);
     }
 }
