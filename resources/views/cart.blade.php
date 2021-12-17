@@ -117,10 +117,10 @@
 
         function check() {
             var size = Object.keys(app).length;
-            if (obj.length != size) {
-                $('input[type=checkbox][name=selectAll]').prop('checked', false);
-            } else {
+            if (obj.length == size) {
                 $('input[type=checkbox][name=selectAll]').prop('checked', true);
+            } else {
+                $('input[type=checkbox][name=selectAll]').prop('checked', false);
             }
         }
 
