@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -34,13 +35,13 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Route Sabun
+Route::post('/products', [ProductController::class, 'search']);
 Route::get('/products', [ProductController::class, 'index']);
-Route::get('/product/{product:slug}', [ProductController::class, 'show']);
+Route::get('/product/{product:slug}', [ProductController::class, 'show'])->name('product');
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
 Route::put('/product/addreview', [ProductController::class, 'addreview'])->name('addreview');
-Route::post('/products/search', [ProductController::class, 'search']);
 
 Route::get('/profile/products/checkSlug', [ProfileController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/profile/products', ProfileController::class)->middleware('auth');
@@ -104,4 +105,7 @@ Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear'
 
 Route::post('checkout', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('auth');
 
-Route::get('/checkout', [checkoutController::class, 'index'])->name('checkout.index')->middleware('auth');;
+Route::get('/checkout', [checkoutController::class, 'index'])->name('checkout.index')->middleware('auth');
+Route::prefix('admin')->group(function () {
+    Route::resource('user', UserController::class);
+});

@@ -2,32 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use Illuminate\Http\Request;
-use Nette\Utils\Json;
+use Illuminate\Support\Facades\Gate;
 
-class CheckoutController extends Controller
+
+use Illuminate\Http\Request;
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $checkout = $request->session()->get('checkout');
-        $b = '$c = ' . (str_replace(array('[', ']'), array('array(', ')'), $checkout)) .
-            ';';
-        eval($b);
-        $items = (object)[];
-        for ($i = 0; $i < count($c); $i++) {
-            $product = Product::find($c[$i][0]);
-            $items->$i = $product;
+        if (!Gate::allows('user-access')) {
+            abort(403);
         }
-        return view('checkout', [
-            'title' => 'CheckOut',
-            'items' => $items,
-        ]);
+        return view('admin.index');
     }
 
     /**
@@ -48,8 +40,7 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        $request->session()->put('checkout', $request->check);
-        return redirect()->route('checkout.index');
+        //
     }
 
     /**

@@ -14,14 +14,14 @@
     </div>
     <div class="item-cart">
         <div class="rs shadow p-3 bg-body rounded ">
-            <input class="form-check-input me-2" type="checkbox">
+            <input class="form-check-input me-2" type="checkbox" name="selectAll">
             <label class="form-check-label" for="flexCheckDefault">
                 <b>Select All</b>
             </label>
         </div>
         @foreach($cartItems as $item)
         <div class="rs mt-3 shadow p-3 bg-body rounded d-flex align-items-center justify-content-between">
-            <input class="form-check-input me-2" type="checkbox" name="select" id="{{$item->id}}" value="{{$item->price}}">
+            <input class="form-check-input me-2" type="checkbox" name="select" value="{{$item->id}}">
             <div class="img img-thumbnail mx-2">
                 <img src="/download.jfif" style="width: 100%; height:auto" alt="product">
             </div>
@@ -83,19 +83,48 @@
 <script>
     $(document).ready(function() {
         let obj = [];
+        var app = <?php echo json_encode($cartItems); ?>;
+        console.log(app[1]);
         $('input[type=checkbox][name=select]').change(function() {
             if (this.checked) {
-                obj.push([`${this.id}`, `${this.value}`]);
+                obj.push([`${app[this.value].id}`, `${app[this.value].price}`]);
 
             } else {
                 for (let index = 0; index < obj.length; index++) {
-                    if (obj[index][0] === `${this.id}`) {
+                    if (obj[index][0] === `${this.value}`) {
                         obj.splice(index, 1);
                         break;
                     }
                 }
             }
+            check();
+
             console.log(obj)
+            count();
+
+        });
+        $('input[type=checkbox][name=selectAll]').change(function() {
+            $('input:checkbox').not(this).prop('checked', this.checked);
+            if (this.checked) {
+                $("input:checkbox[name=select]:checked").each(function() {
+                    obj.push([`${app[this.value].id}`, `${app[this.value].price}`]);
+                });
+            } else {
+                obj = []
+            }
+            count();
+        });
+
+        function check() {
+            var size = Object.keys(app).length;
+            if (obj.length == size) {
+                $('input[type=checkbox][name=selectAll]').prop('checked', true);
+            } else {
+                $('input[type=checkbox][name=selectAll]').prop('checked', false);
+            }
+        }
+
+        function count() {
             var total = 0;
             for (var i = 0; i < obj.length; i++) {
                 total += obj[i][1] << 0;
@@ -109,7 +138,7 @@
             $("b#harga").text("Rp" + total);
             $("#jml").text(obj.length);
             $("#pass").val(JSON.stringify(obj));
-        });
+        }
     });
 </script>
 @endsection

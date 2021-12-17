@@ -6,20 +6,24 @@
 @section('container')
 
 <h1 class="my-4 text-center">{{ $title }}</h1>
-<form action="product/search" method="POST">
+<form action="/products" method="POST">
+    @csrf
     <div class="input-group mb-3">
-        <input type="text" name="key" class="form-control" placeholder="search something">
+        <input type="text" name="key" class="form-control" placeholder="search something" onfocus="search()">
         <button type="submit" class="input-group-text">search</button>
     </div>
 </form>
 
 <div class="row geser2">
-    @foreach ( $products as $product )
+    @if($products != null)
+    @foreach ($products as $product)
+
+
     <div class="col col-md-3">
         <div class="tinggi card mb-3">
-            <div class="position-absolute px-3 py-2 text-white rounded-bottom pin"><a href="categories/{{ $product->category->slug}}" class="text-decoration-none text-white">{{ $product->category->name }}</a></div>
+            <div class="position-absolute px-3 py-2 text-white rounded-bottom pin"><a href="categories/{{$product->category->slug}}" class="text-decoration-none text-white">{{ $product->category->name }}</a></div>
             <a href="/product/{{ $product->slug }}" class="text-decoration-none text-dark">
-                <img src="/img/bun1.jpg" class="card-img-top" alt="{{ $product->category->name }}">
+                <img src="https://source.unsplash.com/400x400/?{{ $product->category->slug }}" class="card-img-top" alt="{{ $product->category->name }}">
                 <div class="card-body boday">
                     <h5 class="card-title fw-normal">{{ $product->title }}</h5>
                     <p class="card-text fs-4">Rp{{ $product->excerpt }}</p>
@@ -28,6 +32,19 @@
         </div>
     </div>
     @endforeach
+    @endif
 </div>
+
+@endsection
+@section('script')
+<script>
+    function search() {
+        document.getElementsByClassName("popuptable").style.display = "block"
+    }
+
+    function clearsearch() {
+        document.getElementById("popuptable").style.display = "none";
+    }
+</script>
 
 @endsection
