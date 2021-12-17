@@ -1,6 +1,11 @@
+.haji{
+    height: 100vmin;
+}
+
 @media (max-width : 576px) {
     .haji {
         width:  100%;
         margin-left: 2px;
     }
 }
+
