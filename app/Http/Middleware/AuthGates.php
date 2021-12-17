@@ -25,7 +25,7 @@ class AuthGates
             $roles = Role::with('Permission')->get();
             $permissionArray = [];
             foreach ($roles as $role) {
-                foreach ($role->Permissions as $permission) {
+                foreach ($role->permission as $permission) {
                     $permissionArray[$permission->name] = $role->id;
                 }
             }
